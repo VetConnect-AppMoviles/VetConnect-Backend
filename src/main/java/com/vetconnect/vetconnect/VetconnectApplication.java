@@ -24,8 +24,8 @@ public class VetconnectApplication {
                 @Override
                 public void addCorsMappings(CorsRegistry registry) {
                     registry.addMapping("/**")  // Aplica a todas las rutas
-                            .allowedOrigins("*")  // Permite solicitudes desde cualquier origen
-                            .allowedMethods("GET", "POST", "PUT", "DELETE", "PATCH")  // Métodos permitidos
+                            .allowedOrigins("https://resilient-contentment-production.up.railway.app")  // URL explícita de tu frontend
+                            .allowedMethods("HEAD", "GET", "POST", "DELETE", "PATCH")  // Métodos permitidos
                             .allowCredentials(true)  // Permite el uso de credenciales si es necesario
                             .allowedHeaders("*");  // Permite cualquier encabezado
                 }
