@@ -24,7 +24,7 @@ public static class MyConfiguration {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("https://resilient-contentment-production.up.railway.app", "http://localhost:54928")  // URL de producción y localhost para desarrollo
+                        .allowedOrigins("https://resilient-contentment-production.up.railway.app", "http://localhost:60195")  // URL de producción y localhost para desarrollo
                         .allowedMethods("HEAD", "GET", "POST", "DELETE", "PATCH")  // Métodos permitidos
                         .allowCredentials(true)  // Permitir credenciales si es necesario
                         .allowedHeaders("*");  // Permitir cualquier encabezado
