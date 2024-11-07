@@ -16,20 +16,21 @@ public class VetconnectApplication {
         SpringApplication.run(VetconnectApplication.class, args);
     }
 
-    @Configuration
-    public static class MyConfiguration {
-        @Bean
-        public WebMvcConfigurer corsConfigurer() {
-            return new WebMvcConfigurer() {
-                @Override
-                public void addCorsMappings(CorsRegistry registry) {
-                    registry.addMapping("/**")  // Aplica a todas las rutas
-                            .allowedOrigins("https://resilient-contentment-production.up.railway.app")  // URL explícita de tu frontend
-                            .allowedMethods("HEAD", "GET", "POST", "DELETE", "PATCH")  // Métodos permitidos
-                            .allowCredentials(true)  // Permite el uso de credenciales si es necesario
-                            .allowedHeaders("*");  // Permite cualquier encabezado
-                }
-            };
-        }
+@Configuration
+public static class MyConfiguration {
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**")
+                        .allowedOrigins("https://resilient-contentment-production.up.railway.app", "http://localhost:57057")  // URL de producción y localhost para desarrollo
+                        .allowedMethods("HEAD", "GET", "POST", "DELETE", "PATCH")  // Métodos permitidos
+                        .allowCredentials(true)  // Permitir credenciales si es necesario
+                        .allowedHeaders("*");  // Permitir cualquier encabezado
+            }
+        };
     }
+}
+
 }
