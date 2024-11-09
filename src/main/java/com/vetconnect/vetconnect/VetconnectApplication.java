@@ -24,7 +24,7 @@ public class VetconnectApplication {
                 @Override
                 public void addCorsMappings(CorsRegistry registry) {
                     registry.addMapping("/**")
-                            .allowedOrigins("https://splendid-grace-production.up.railway.app", "http://localhost:55880")  // Nueva URL de producción y localhost para pruebas
+                            .allowedOrigins("https://fulfilling-celebration-production.up.railway.app", "http://localhost:55880")  // Nueva URL de producción y localhost para pruebas
                             .allowedMethods("HEAD", "GET", "POST", "DELETE", "PATCH")  // Métodos permitidos
                             .allowCredentials(true)  // Permitir credenciales si es necesario
                             .allowedHeaders("*");  // Permitir cualquier encabezado
