@@ -16,7 +16,7 @@ public class SwaggerConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .servers(Arrays.asList(
-                        new Server().url("https://resilient-contentment-production.up.railway.app").description("Railway server")
+                        new Server().url("https://splendid-grace-production.up.railway.app").description("Railway server")
                 ))
                 .info(new Info()
                         .title("VetConnect API")
