@@ -25,7 +25,7 @@ public class VetCenterController {
         return service.saveVetCenter(vetCenterDTO);
     }
 
-    @PutMapping("/{id}")
+    @PatchMapping("/{id}")
     public VetCenterDTO updateVetCenter(@PathVariable Long id, @RequestBody VetCenterDTO vetCenterDTO) {
         vetCenterDTO.setId(id);
         return service.updateVetCenter(vetCenterDTO);

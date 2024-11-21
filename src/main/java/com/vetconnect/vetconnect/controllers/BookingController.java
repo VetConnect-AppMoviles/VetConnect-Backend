@@ -43,7 +43,7 @@ public class BookingController {
     /**
      * Actualiza una reserva existente.
      */
-    @PutMapping("/{id}")
+    @PatchMapping("/{id}")
     public BookingDTO updateBooking(@PathVariable Long id, @RequestBody BookingDTO bookingDTO) {
         return service.updateBooking(id, bookingDTO);
     }

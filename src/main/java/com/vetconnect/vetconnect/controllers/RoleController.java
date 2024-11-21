@@ -30,7 +30,7 @@ public class RoleController {
         return service.saveRole(roleDTO);
     }
 
-    @PutMapping("/{id}")
+    @PatchMapping("/{id}")
     public RoleDTO updateRole(@PathVariable Long id, @RequestBody RoleDTO roleDTO) {
         return service.updateRole(id, roleDTO);
     }

@@ -6,6 +6,7 @@ import com.vetconnect.vetconnect.repositories.PetOwnerRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -25,6 +26,26 @@ public class PetOwnerService {
     public PetOwnerDTO savePetOwner(PetOwnerDTO petOwnerDTO) {
         PetOwner petOwner = convertToEntity(petOwnerDTO);
         return convertToDTO(repository.save(petOwner));
+    }
+    
+    public PetOwnerDTO updatePetOwner(PetOwnerDTO petOwnerDTO) {
+        Optional<PetOwner> existingPetOwner = repository.findById(petOwnerDTO.getId());
+
+        if (existingPetOwner.isPresent()) {
+            PetOwner petOwner = existingPetOwner.get();
+            petOwner.setUserId(petOwnerDTO.getUserId());
+            petOwner.setPhoto(petOwnerDTO.getPhoto());
+            petOwner.setAddress(petOwnerDTO.getAddress());
+            petOwner.setPhone(petOwnerDTO.getPhone());
+
+            return convertToDTO(repository.save(petOwner));
+        } else {
+            throw new RuntimeException("petOwner with ID " + petOwnerDTO.getId() + " not found.");
+        }
+    }
+
+    public void deletePetOwner(Long id) {
+        repository.deleteById(id);
     }
 
     private PetOwnerDTO convertToDTO(PetOwner petOwner) {

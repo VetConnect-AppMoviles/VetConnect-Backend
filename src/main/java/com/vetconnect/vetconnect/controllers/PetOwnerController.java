@@ -24,4 +24,16 @@ public class PetOwnerController {
     public PetOwnerDTO createPetOwner(@RequestBody PetOwnerDTO petOwnerDTO) {
         return service.savePetOwner(petOwnerDTO);
     }
+
+    @PatchMapping("/{id}")
+    public PetOwnerDTO updatePetOwner(@PathVariable Long id, @RequestBody PetOwnerDTO petOwnerDTO) {
+        petOwnerDTO.setId(id);
+        return service.updatePetOwner(petOwnerDTO);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deletePetOwner(@PathVariable Long id) {
+        service.deletePetOwner(id);
+    }
+
 }
