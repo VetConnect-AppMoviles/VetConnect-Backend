@@ -16,7 +16,7 @@ public class SwaggerConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .servers(Arrays.asList(
-                        new Server().url("http://localhost:8080").description("Railway server")
+                        new Server().url("https://vetconnect-backend-production.up.railway.app").description("Railway server")
                 ))
                 .info(new Info()
                         .title("VetConnect API")
@@ -24,4 +24,5 @@ public class SwaggerConfig {
                         .description("API para la gestión de reservas, reseñas, dueños de mascotas y centros veterinarios.")
                         .license(new License().name("Apache 2.0").url("https://springdoc.org")));
     }
+
 }
